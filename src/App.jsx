@@ -6,7 +6,7 @@ import NavBar from "./components/NavBar";
 
 function App() {
   return (
-    <div className="App  font-ProximaNova text-primaryText  ">
+    <div className="App font-ProximaNova text-primaryText  ">
       <NavBar/>
       <Routes>
         <Route path="/" element={<Home />} />

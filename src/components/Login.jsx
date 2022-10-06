@@ -30,11 +30,11 @@ function Login() {
         }
         setLoading(false)
     }
-    const style = 'w-full mt-3 p-3 bg-green-600 text-white font-semibold rounded-md outline-none '
+    const style = 'w-full mt-3 p-3 bg-green-600 text-white font-semibold rounded-md outline-none hover:bg-green-500 '
   return (
     <div className="max-w-[500px] h-fit border m-auto rounded-md p-6 mt-12">
       <form onSubmit={handleLogin} >
-        <h4 className='font-semibold text-4xl mb-4 text-primaryText'>Welcome</h4>
+        <h4 className='font-semibold text-4xl text-center mb-4 text-primaryText'>Welcome</h4>
         <input ref={emailRef} className=' w-full p-4 rounded-md outline-none border  bg-gray-50 mt-8 mb-3 focus:border-green-500' type="email" autoComplete='true' placeholder='Email Address'/>
         <input ref={passwordRef} className='w-full p-4  focus:border-green-500 rounded-md outline-none border  bg-gray-50 mb-3' type="password" autoComplete='true' placeholder='Enter Password'/>
         <button disabled={loading}  className={loading ? `${style} bg-slate-400` : style}  >SIGN IN</button>
@@ -46,7 +46,7 @@ function Login() {
           <p className='mt-4 text-lg'>Or</p>
         </div>
       </form>
-       <button className='w-full flex items-center gap-x-[90px] mt-3 p-3 bg-[#4285f4] text-white font-medium rounded-md outline-none'>
+       <button className='w-full flex items-center gap-x-[90px] mt-3 p-3 bg-[#4285f4] text-white font-semibold rounded-md outline-none hover:bg-blue-400'>
           <div className="w-7 h-7 bg-white rounded-md"><img src={google} alt="icon-google" /></div>
           SIGN IN WITH GOOGLE</button>
     </div>

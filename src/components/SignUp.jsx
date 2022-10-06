@@ -1,6 +1,6 @@
 import React, {useRef, useState} from 'react'
 import { Link, useNavigate } from 'react-router-dom';
-import {signup, useAuth} from '../firebase'
+import {signup, useAuth, signInWithGoogle, signInWithGooglePopup} from '../firebase'
 import google from '../assets/google_icon.png'
 // import {useAuth} from '../contexts/AuthContext'
 
@@ -15,6 +15,18 @@ function SignUp() {
     const user = useAuth()
     const navigate = useNavigate ();
 
+// Handle Signup withbGoogle Popup
+    async function handleSignupWithGoogle() {
+       setLoading(true);
+        try {
+            await signInWithGooglePopup();
+            navigate('/');
+        } catch (error) {
+            console.error(error);
+            alert(error.message)
+        }
+        setLoading(false);
+    }
 
     async function handleSubmit(e) {
         e.preventDefault(); 
@@ -25,14 +37,14 @@ function SignUp() {
         setLoading(true)
         try {
           await signup(emailRef.current.value, passwordRef.current.value)  
-          navigate('/');
+          navigate('/login');
         } catch (error) {
           console.error(error);
           alert(error.message)  
         }
         setLoading(false)
     }
-    const style = 'w-full mt-3 p-3 bg-green-600 text-white font-semibold rounded-md outline-none '
+    const style = 'w-full mt-3 p-3 bg-green-600 text-white font-semibold rounded-md outline-none hover:bg-green-500'
   return (
     <div className="max-w-[500px] h-fit border m-auto rounded-md p-6 mt-6">
       <form onSubmit={handleSubmit} >
@@ -46,7 +58,7 @@ function SignUp() {
           <p className='mt-4 text-lg'>Or</p>
         </div>
       </form>
-       <button className='w-full flex items-center gap-x-[90px]  mt-3 p-3 text-center bg-[#4285f4] text-white font-medium rounded-md outline-none'>
+       <button onClick={handleSignupWithGoogle} className='w-full flex items-center gap-x-[90px] font-semibold  mt-3 p-3 text-center bg-[#4285f4] text-white rounded-md outline-none hover:bg-blue-400'>
           <div className="w-7 h-7 bg-white rounded-md"><img src={google} alt="icon-google" /></div>
           SIGN UP WITH GOOGLE</button>
     </div>

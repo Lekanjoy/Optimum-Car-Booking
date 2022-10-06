@@ -11,3 +11,15 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 input{
     cursor: pointer;
 }
+#dropdown::after{
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    background-color: #A6AFBA;
+    content: "";
+    right: 3px;
+    top: -7px;
+    transform: rotate(45deg);
+    z-index: -1;
+    
+}

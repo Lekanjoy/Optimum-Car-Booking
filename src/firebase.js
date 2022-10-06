@@ -1,6 +1,15 @@
 import { useState, useEffect } from "react";
 import { initializeApp } from "firebase/app";
-import {getAuth, createUserWithEmailAndPassword,signOut,signInWithRedirect,signInWithEmailAndPassword,onAuthStateChanged } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signOut,
+  signInWithRedirect,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  GoogleAuthProvider,
+} from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -25,24 +34,39 @@ export function login(email, password) {
   return signInWithEmailAndPassword(auth, email, password);
 }
 // SignOut Auth
-export function logOut(){
-  signOut(auth)
+export function logOut() {
+  return signOut(auth);
 }
+
+// Signin with google redirect
+export function signInWithGoogle() {
+  const provider = new GoogleAuthProvider();
+  return signInWithRedirect(auth, provider);
+}
+
+// sigin with google popup
+export function signInWithGooglePopup() {
+  const provider = new GoogleAuthProvider();
+  return signInWithPopup(auth, provider);
+}
+
+
+
 
 // Custom Hook for Current User
 export function useAuth() {
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(null);
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
-        setUser(user)
+        setUser(user);
       } else {
-        setUser(null)
+        setUser(null);
       }
-    })
-    return unsubscribe
-  }, [])
-  return user
+    });
+    return unsubscribe;
+  }, []);
+  return user;
 }
 
 // export const app = firebase.initializeApp({

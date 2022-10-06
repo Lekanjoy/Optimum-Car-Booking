@@ -7,7 +7,7 @@ module.exports = {
         ProximaNova: "Proxima Nova",
       },
       colors: {
-        blue: "#0A20E6",
+        blueLogo: "#0A20E6",
         textNav: "#A6AFBA",
         primaryText: "#13171B",
         bgInput: "#F6F7F9",
