@@ -24,7 +24,7 @@ function FilterBox() {
         Filter By
       </h3>
       <div className="type">
-        <div className="flex justify-between mb-5 mt-6">
+        <div className="flex justify-between mb-5 mt-6 items-center">
           <h5 className="font-semibold text-sm text-filterText">Car type</h5>
           <img onClick={handleToggleType} className="cursor-pointer" src={minus} alt="icon toggle" />
         </div>
@@ -52,7 +52,7 @@ function FilterBox() {
         </form>}
       </div>
       <div className="capacity">
-         <div className="flex justify-between mb-5 mt-6">
+         <div className="flex justify-between mb-5 mt-6 items-center">
           <h5 className="font-semibold text-sm text-filterText">Capacity</h5>
           <img onClick={handleToggleCapacity} className="cursor-pointer" src={minus} alt="icon toggle" />
         </div>
@@ -68,7 +68,7 @@ function FilterBox() {
         </form>}
       </div>
       <div className="recommendation">
-          <div className="flex justify-between mb-5 mt-6">
+          <div className="flex justify-between mb-5 mt-6 items-center">
           <h5 className="font-semibold text-sm text-filterText">Customer Recommendation</h5>
           <img onClick={handleToggleRecommend} className="cursor-pointer" src={minus} alt="icon toggle" />
         </div>

@@ -29,7 +29,7 @@ function PickupDetails() {
           </div>
           <input
           ref={locationRef}
-          value={locationRef.current}
+          // value={locationRef.current.value}
             type="text"
             placeholder="London (LGW - Gatwick)"
             className="bg-bgInput w-[344px] rounded-xl px-4 py-3"

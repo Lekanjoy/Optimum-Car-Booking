@@ -20,7 +20,7 @@ function Intro() {
             <img src={stars} alt="stars icon" />
             <img src={stars} alt="stars icon" />
           </div>
-          <p className="font-normal text-xs text-textNav mt-2 whitespace-nohwrap">Trusted by 10 million customers</p>
+          <p className="font-normal text-xs text-textNav mt-2 whitespace-nowrap">Trusted by 10 million customers</p>
         </div>
       </div>
     </section>
