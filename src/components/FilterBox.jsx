@@ -19,7 +19,7 @@ function FilterBox() {
     }
 
   return (
-    <section className="bg-white w-[295px] rounded-3xl h-auto p-9">
+    <section className="bg-white  w-[295px] h-[650px] rounded-3xl  p-9">
       <h3 className="font-semibold text-base pb-6 border border-x-0 border-t-0 border-[#F6F7F9]">
         Filter By
       </h3>

@@ -8,10 +8,12 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     background-position: center;
 }
 
-input{
+input {
     cursor: pointer;
+    outline: none;
 }
-#dropdown::after{
+
+#dropdown::after {
     width: 18px;
     height: 18px;
     position: absolute;
@@ -21,5 +23,24 @@ input{
     top: -7px;
     transform: rotate(45deg);
     z-index: -1;
-    
+
+}
+
+@layer base {
+    html {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    #booking{
+        /* width: 100%; */
+        position: relative;
+    }
+    #booking::before {
+        width: 100%;
+        height: 3px;
+        position: absolute;
+        background-color: blue;
+        content: "";
+        bottom: -27px;
+    }
 }

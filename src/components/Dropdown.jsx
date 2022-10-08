@@ -1,24 +1,21 @@
-import React from 'react'
-import {Link, useNavigate} from 'react-router-dom'
-import {useAuth, logOut} from '../firebase'
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth, logOut } from "../firebase";
 
-function Dropdown({setShowDropDown}) {
-    const user = useAuth();
-    const navigate = useNavigate();
+function Dropdown({ setShowDropDown }) {
+  const user = useAuth();
+  const navigate = useNavigate();
 
-
-    // Handle   Logout
-    async function handleLogout(){
-        try {
-        await logOut()
-            navigate('/login') 
-            setShowDropDown(false)
-        } catch (error) {
-            alert('Unable to Logout')
-            
-        }
-
+  // Handle   Logout
+  async function handleLogout() {
+    try {
+      await logOut();
+      navigate("/login");
+      setShowDropDown(false);
+    } catch (error) {
+      alert("Unable to Logout");
     }
+  }
 
   return (
     <div
@@ -27,7 +24,9 @@ function Dropdown({setShowDropDown}) {
     >
       <div className=" w-full flex justify-between items-center gap-x-3 mb-3">
         <p className="text-textNav ">Username:</p>
-        <p className="text-sm text-primaryText">@{user?.displayName || user?.email}</p>
+        <p className="text-sm text-primaryText">
+          @{user?.displayName || user?.email}
+        </p>
       </div>
       <div className=" w-full flex justify-between items-center gap-x-3 mb-3 ">
         <p className="text-textNav ">Email:</p>
@@ -43,4 +42,4 @@ function Dropdown({setShowDropDown}) {
   );
 }
 
-export default Dropdown
+export default Dropdown;

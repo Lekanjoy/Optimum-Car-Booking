@@ -52,7 +52,6 @@ export function signInWithGooglePopup() {
 
 
 
-
 // Custom Hook for Current User
 export function useAuth() {
   const [user, setUser] = useState(null);
